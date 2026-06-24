@@ -59,7 +59,7 @@ This workspace separates raw evidence from distilled knowledge:
 ```
 data/raw/                     verbatim tool output (nmap xml, gobuster txt, ...) — never edit
 data/knowledge-base/INDEX.md  catalog of every distilled artifact — grep this FIRST
-data/knowledge-base/hosts/    one file per host: services, versions, creds, findings
+data/knowledge-base/hosts/    one file per host: services, versions, creds, finding pointers
 data/knowledge-base/*.md      cross-host topic notes (web, domain, creds)
 ```
 
@@ -69,11 +69,32 @@ data/knowledge-base/*.md      cross-host topic notes (web, domain, creds)
 - **After** any scan, invoke the **`kb-distill`** skill to extract facts into the knowledge
   base and update the host file and `INDEX.md`.
 
-## 5. Working notes
+## 5. Findings, cleanup, evidence, report
+
+Engagement record stores — keep them current as you go:
+
+```
+findings/                 one file per CONFIRMED finding (use the log-finding skill)
+report/report.md          client deliverable (use the pentest-report skill)
+evidence/command-log.md   automatic audit trail of every Bash command — do not hand-edit
+cleanup/cleanup-log.md     artifacts dropped on targets + teardown status (cleanup-tracker)
+```
+
+- **Confirmed a vulnerability?** Record it immediately with the **`log-finding`** skill — it
+  writes a structured file to `findings/` and adds a pointer in the host's KB file. Findings
+  live in `findings/`, not loose in notes.
+- **Dropped anything on a target** (uploaded file, shell, account, persistence, config change)?
+  Log it the moment you do, with the **`cleanup-tracker`** skill. The engagement is not clean
+  until every tracked artifact is removed.
+- `evidence/command-log.md` is appended automatically by the command-log hook — it is the
+  chain-of-custody index. Reference it; do not rely on memory for what ran when.
+- **Writing the deliverable?** Use the **`pentest-report`** skill — it assembles scope, KB,
+  and findings into `report/report.md`.
+
+## 6. Working notes
 
 - `docs/scope.md` — Rules of Engagement (authority).
 - `notes.md` — freeform operator scratch.
-- Keep findings in the per-host KB files as you confirm them.
 
 When in doubt about whether something is permitted, stop and ask the operator. Caution is
 correct; assumptions are not.

@@ -21,6 +21,12 @@ whole job.
 - **Distills raw output into a knowledge base** (`/kb-distill`) — turns verbatim tool output
   into per-host facts and an index, so Claude reads what it already learned instead of
   re-running equivalent scans.
+- **Captures findings and ships a report** (`/log-finding`, `/pentest-report`) — records each
+  confirmed finding in a consistent shape, then assembles scope + KB + findings into a
+  client-ready report draft.
+- **Tracks artifacts and audits every command** (`/cleanup-tracker` + an automatic command-log
+  hook) — logs anything dropped on a target for teardown, and records every Bash command run in
+  an engagement workspace to `evidence/command-log.md` for chain of custody.
 
 ## The governed workflow
 
@@ -51,10 +57,19 @@ Then, in a fresh empty working directory for your engagement:
 
 | Skill | Slash command | Purpose |
 |-------|---------------|---------|
-| `pentest-init` | `/pentest-init` | Scaffold the engagement workspace |
-| `grill-scope`  | `/grill-scope`  | Relentless pentest scope interview → `docs/scope.md` |
-| `scope-check`  | `/scope-check`  | Review a plan against scope, report conflicts |
-| `kb-distill`   | `/kb-distill`   | Raw tool output → knowledge-base entry + index |
+| `pentest-init`  | `/pentest-init`  | Scaffold the engagement workspace |
+| `grill-scope`   | `/grill-scope`   | Relentless pentest scope interview → `docs/scope.md` |
+| `scope-check`   | `/scope-check`   | Review a plan against scope, report conflicts |
+| `kb-distill`    | `/kb-distill`    | Raw tool output → knowledge-base entry + index |
+| `log-finding`   | `/log-finding`   | Record one confirmed finding into `findings/` |
+| `pentest-report`| `/pentest-report`| Assemble scope + KB + findings → `report/report.md` |
+| `cleanup-tracker`| `/cleanup-tracker`| Track artifacts dropped on targets + teardown checklist |
+
+### Automatic hook
+
+A `PostToolUse` hook logs every Bash command run **inside an engagement workspace** to
+`evidence/command-log.md` (chain of custody). It is inert in any non-engagement directory and
+never blocks a command.
 
 ## Dependencies
 
@@ -75,5 +90,5 @@ or from source (https://github.com/obra/superpowers):
 
 ## Roadmap
 
-Report generation, a passive recon subagent, and an optional shared resource library are
-planned but not yet included.
+A passive recon subagent and an optional shared resource library are planned but not yet
+included.
