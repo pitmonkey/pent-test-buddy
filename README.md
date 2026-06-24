@@ -58,8 +58,20 @@ Then, in a fresh empty working directory for your engagement:
 
 ## Dependencies
 
-Uses the `superpowers` plugin's `brainstorming` and `writing-plans` skills for the plan-first
-workflow. Install superpowers alongside this plugin for the full experience.
+**Required:** the `superpowers` plugin. The plan-first workflow uses its `brainstorming`
+(→ spec) and `writing-plans` (→ plan) skills, and `/pentest-init` hard-stops if it is not
+installed. Install it first:
+
+```
+/plugin install superpowers@claude-plugins-official
+```
+
+or from source (https://github.com/obra/superpowers):
+
+```
+/plugin marketplace add obra/superpowers
+/plugin install superpowers
+```
 
 ## Roadmap
 
