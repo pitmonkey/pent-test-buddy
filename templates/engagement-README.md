@@ -41,6 +41,9 @@ planning — borrowed approaches still pass through `scope-check` before use.
 Stuck or wrapping up a phase? `/what-have-we-missed` reads the whole workspace and suggests
 next moves (in scope) plus out-of-scope options worth knowing about.
 
+Need a capability you don't have? `/find-skills <capability>` searches GitHub for an existing
+skill or subagent and recommends one — you decide whether to install it.
+
 ## Ground rules
 
 - Nothing runs against a target that is not explicitly in scope and authorized in `scope.md`.

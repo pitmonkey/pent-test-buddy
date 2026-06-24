@@ -58,6 +58,10 @@ Optional anytime: **`/get-inspired <folder>`** mines an uninstalled plugin/repo 
 - **Surfaces what you've overlooked** (`/what-have-we-missed`) — reads the whole workspace and
   returns grounded next moves in two buckets: in-scope lines of effort, and out-of-scope-but-
   possible options. Creative on approach, anchored to the evidence on disk.
+- **Finds existing skills/subagents** (`/find-skills <capability>`) — searches GitHub for a skill
+  or subagent already good at a capability and recommends a top pick plus angle-split options
+  (e.g. defensive vs offensive). The remote-discovery counterpart to `get-inspired`; it
+  recommends, it doesn't install.
 
 ## The governed workflow
 
@@ -83,6 +87,7 @@ The `CLAUDE.md` written into each engagement directory requires, for any offensi
 | `cleanup-tracker`| `/cleanup-tracker`| Track artifacts dropped on targets + teardown checklist |
 | `get-inspired`  | `/get-inspired <folder>`| Mine an uninstalled folder for borrowable ideas (no install) |
 | `what-have-we-missed`| `/what-have-we-missed`| Review the workspace for gaps + next moves (in/out of scope) |
+| `find-skills`   | `/find-skills <capability>`| Search GitHub for a skill/subagent good at a capability (no install) |
 
 ### Automatic hook
 
