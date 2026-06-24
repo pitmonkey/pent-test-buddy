@@ -55,6 +55,9 @@ Optional anytime: **`/get-inspired <folder>`** mines an uninstalled plugin/repo 
 - **Borrows ideas from uninstalled tooling** (`/get-inspired <folder>`) — point Claude at a
   plugin/repo you don't want to install and it mines transferable methods, tools, and workflows
   for the task at hand, without installing, copying, or running any of it.
+- **Surfaces what you've overlooked** (`/what-have-we-missed`) — reads the whole workspace and
+  returns grounded next moves in two buckets: in-scope lines of effort, and out-of-scope-but-
+  possible options. Creative on approach, anchored to the evidence on disk.
 
 ## The governed workflow
 
@@ -79,6 +82,7 @@ The `CLAUDE.md` written into each engagement directory requires, for any offensi
 | `pentest-report`| `/pentest-report`| Assemble scope + KB + findings → `report/report.md` |
 | `cleanup-tracker`| `/cleanup-tracker`| Track artifacts dropped on targets + teardown checklist |
 | `get-inspired`  | `/get-inspired <folder>`| Mine an uninstalled folder for borrowable ideas (no install) |
+| `what-have-we-missed`| `/what-have-we-missed`| Review the workspace for gaps + next moves (in/out of scope) |
 
 ### Automatic hook
 

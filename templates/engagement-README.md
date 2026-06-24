@@ -38,6 +38,9 @@ notes.md                   freeform scratch
 Optional: `/get-inspired <folder>` mines an uninstalled plugin/repo for ideas to use in
 planning — borrowed approaches still pass through `scope-check` before use.
 
+Stuck or wrapping up a phase? `/what-have-we-missed` reads the whole workspace and suggests
+next moves (in scope) plus out-of-scope options worth knowing about.
+
 ## Ground rules
 
 - Nothing runs against a target that is not explicitly in scope and authorized in `scope.md`.
