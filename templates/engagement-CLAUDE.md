@@ -80,9 +80,12 @@ evidence/command-log.md   automatic audit trail of every Bash command — do not
 cleanup/cleanup-log.md     artifacts dropped on targets + teardown status (cleanup-tracker)
 ```
 
-- **Confirmed a vulnerability?** Record it immediately with the **`log-finding`** skill — it
-  writes a structured file to `findings/` and adds a pointer in the host's KB file. Findings
-  live in `findings/`, not loose in notes.
+- **Spotted something that could be a finding?** The moment you observe anything that looks
+  like a vulnerability, misconfiguration, or exposure — STOP and surface it to the operator:
+  say what it is and offer to run the **`log-finding`** skill on it. Do not silently log it and
+  do not just barrel past it; let the operator confirm severity and evidence first. On their
+  go, `log-finding` writes a structured file to `findings/` and adds a pointer in the host's KB
+  file. Findings live in `findings/`, not loose in notes.
 - **Dropped anything on a target** (uploaded file, shell, account, persistence, config change)?
   Log it the moment you do, with the **`cleanup-tracker`** skill. The engagement is not clean
   until every tracked artifact is removed.
