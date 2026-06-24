@@ -1,0 +1,6 @@
+# Plugin source repo — keep clean. Engagement data lives in operator workspaces, not here.
+*.swp
+*.tmp
+.DS_Store
+__pycache__/
+node_modules/

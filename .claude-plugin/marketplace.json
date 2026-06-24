@@ -1,0 +1,18 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "pent-test-buddy",
+  "description": "Pen Test Buddy — a scope-governed penetration-testing assistant plugin for Claude Code.",
+  "owner": {
+    "name": "pitmonkey",
+    "email": "pitmonkey@users.noreply.github.com"
+  },
+  "plugins": [
+    {
+      "name": "pent-test-buddy",
+      "description": "Scaffold a scope-governed pentest workspace, grill out the Rules of Engagement, gate actions against scope.md, and distill raw tool output into a reusable knowledge base.",
+      "version": "0.1.0",
+      "source": "./",
+      "category": "security"
+    }
+  ]
+}
