@@ -27,6 +27,9 @@ whole job.
 - **Tracks artifacts and audits every command** (`/cleanup-tracker` + an automatic command-log
   hook) — logs anything dropped on a target for teardown, and records every Bash command run in
   an engagement workspace to `evidence/command-log.md` for chain of custody.
+- **Borrows ideas from uninstalled tooling** (`/get-inspired <folder>`) — point Claude at a
+  plugin/repo you don't want to install and it mines transferable methods, tools, and workflows
+  for the task at hand, without installing, copying, or running any of it.
 
 ## The governed workflow
 
@@ -64,6 +67,7 @@ Then, in a fresh empty working directory for your engagement:
 | `log-finding`   | `/log-finding`   | Record one confirmed finding into `findings/` |
 | `pentest-report`| `/pentest-report`| Assemble scope + KB + findings → `report/report.md` |
 | `cleanup-tracker`| `/cleanup-tracker`| Track artifacts dropped on targets + teardown checklist |
+| `get-inspired`  | `/get-inspired <folder>`| Mine an uninstalled folder for borrowable ideas (no install) |
 
 ### Automatic hook
 

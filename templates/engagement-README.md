@@ -8,6 +8,7 @@ workspace**. Read `CLAUDE.md` for the governed workflow Claude follows here.
 ```
 docs/
   scope.md                 Rules of Engagement — the authority for what is permitted
+  inspiration/             distilled notes from get-inspired (borrowed ideas, no install)
 data/
   raw/                     verbatim tool output (nmap xml, gobuster txt, ...) — never edited
   knowledge-base/
@@ -33,6 +34,9 @@ notes.md                   freeform scratch
 4. After each scan, `/kb-distill` turns raw output into reusable knowledge-base facts.
 5. Confirmed a vuln? `/log-finding`. Dropped something on a target? `/cleanup-tracker`.
 6. At the end, `/pentest-report` assembles the deliverable.
+
+Optional: `/get-inspired <folder>` mines an uninstalled plugin/repo for ideas to use in
+planning — borrowed approaches still pass through `scope-check` before use.
 
 ## Ground rules
 

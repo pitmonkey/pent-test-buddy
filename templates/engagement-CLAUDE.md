@@ -38,6 +38,10 @@ For any offensive action or phase (recon, enumeration, exploitation, etc.):
 **Never run tools against a target before a spec and plan exist and the operator has approved
 them.** Approvals are per-plan, never blanket — a new phase needs a new plan and a new approval.
 
+Optional planning aid: the **`get-inspired`** skill can mine an uninstalled folder (another
+plugin/repo/toolkit) for borrowable methods and tools. Anything it surfaces is just an idea and
+still passes through `scope-check` and approval before it is used against a target.
+
 ## 3. Mandatory scope-conflict review
 
 Before executing any approved plan, invoke the **`scope-check`** skill. It reviews every target
