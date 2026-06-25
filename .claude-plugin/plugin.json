@@ -1,7 +1,7 @@
 {
   "name": "pent-test-buddy",
   "description": "Penetration-testing assistant for Claude Code. Scaffolds a scope-governed engagement workspace, intakes Rules of Engagement via a relentless scope interview, gates every action against scope.md, and runs a raw -> knowledge-base distillation pipeline so Claude reads what it already learned instead of re-running scans.",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "author": {
     "name": "pitmonkey",
     "email": "pitmonkey@users.noreply.github.com"

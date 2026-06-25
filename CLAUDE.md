@@ -28,9 +28,9 @@ templates/                      files pentest-init copies into an engagement dir
 README.md                       operator-facing plugin overview + install
 ```
 
-Skills (11): `pentest-init`, `grill-scope`, `scope-check`, `kb-distill`, `log-finding`,
+Skills (12): `pentest-init`, `grill-scope`, `scope-check`, `kb-distill`, `log-finding`,
 `pentest-report`, `cleanup-tracker`, `get-inspired`, `what-have-we-missed`, `find-skills`,
-`review-logs`. Hook (1): command-log.
+`review-logs`, `avantic-approaches`. Hook (1): command-log.
 
 ## Conventions
 

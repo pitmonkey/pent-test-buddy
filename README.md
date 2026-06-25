@@ -90,6 +90,7 @@ The `CLAUDE.md` written into each engagement directory requires, for any offensi
 | `what-have-we-missed`| `/what-have-we-missed`| Review the workspace for gaps + next moves (in/out of scope) |
 | `find-skills`   | `/find-skills <capability>`| Search GitHub for a skill/subagent good at a capability (no install) |
 | `review-logs`   | `/review-logs`   | Caveman-compressed audit-log overview + inferred engagement storyline |
+| `avantic-approaches`| `/avantic-approaches`| Fan-out, self-challenging gap audit + new attack avenues (evidence/inference/speculation; review only) |
 
 ### Automatic hook
 
