@@ -1,11 +1,15 @@
 #!/usr/bin/env python3
 """Pen Test Buddy command-log hook.
 
-PostToolUse(Bash) hook. Appends an audit-trail row to <engagement>/evidence/command-log.md
-for every Bash command run inside an engagement workspace. Inert everywhere else.
+PostToolUse(Bash) hook. For every Bash command run inside an engagement workspace it writes
+two audit-trail artifacts, and is inert everywhere else:
+  - <engagement>/evidence/command-log.md   — a truncated, human-scannable one-row-per-command
+                                             markdown table (an index).
+  - <engagement>/evidence/command-log.jsonl — the complete, untruncated PostToolUse payload
+                                             (one JSON object per line) — the full record.
 
-Hard rules: never block, never raise, always exit 0. The log is a chain-of-custody index,
-not a replacement for raw artifacts (those still go to data/raw/).
+Hard rules: never block, never raise, always exit 0. The markdown log is a chain-of-custody
+index, not a replacement for raw artifacts (those still go to data/raw/).
 """
 import sys
 import os
@@ -53,6 +57,14 @@ def main():
             )
     with open(log, "a") as f:
         f.write(f"| {ts} | {cmd_cell} | {result} |\n")
+
+    # Full, untruncated record: the entire PostToolUse payload plus our timestamp, one JSON
+    # object per line. This is the complete chain-of-custody artifact; the markdown above is
+    # only the scannable index.
+    raw_log = os.path.join(cwd, "evidence", "command-log.jsonl")
+    os.makedirs(os.path.dirname(raw_log), exist_ok=True)
+    with open(raw_log, "a") as f:
+        f.write(json.dumps({**data, "logged_at": ts}) + "\n")
 
 
 def _cell(text, limit):

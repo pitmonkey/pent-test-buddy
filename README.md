@@ -51,7 +51,8 @@ Optional anytime: **`/get-inspired <folder>`** mines an uninstalled plugin/repo 
   client-ready report draft.
 - **Tracks artifacts and audits every command** (`/cleanup-tracker` + an automatic command-log
   hook) — logs anything dropped on a target for teardown, and records every Bash command run in
-  an engagement workspace to `evidence/command-log.md` for chain of custody.
+  an engagement workspace to `evidence/command-log.md` (truncated, scannable) plus a full
+  untruncated `evidence/command-log.jsonl` for chain of custody.
 - **Borrows ideas from uninstalled tooling** (`/get-inspired <folder>`) — point Claude at a
   plugin/repo you don't want to install and it mines transferable methods, tools, and workflows
   for the task at hand, without installing, copying, or running any of it.
@@ -92,7 +93,8 @@ The `CLAUDE.md` written into each engagement directory requires, for any offensi
 ### Automatic hook
 
 A `PostToolUse` hook logs every Bash command run **inside an engagement workspace** to
-`evidence/command-log.md` (chain of custody). It is inert in any non-engagement directory and
+`evidence/command-log.md` (a truncated, scannable table) and `evidence/command-log.jsonl` (the
+full untruncated payload) for chain of custody. It is inert in any non-engagement directory and
 never blocks a command.
 
 ## Dependencies

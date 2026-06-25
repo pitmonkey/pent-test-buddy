@@ -80,7 +80,8 @@ Engagement record stores — keep them current as you go:
 ```
 findings/                 one file per CONFIRMED finding (use the log-finding skill)
 report/report.md          client deliverable (use the pentest-report skill)
-evidence/command-log.md   automatic audit trail of every Bash command — do not hand-edit
+evidence/command-log.md   automatic audit trail of every Bash command (truncated) — do not hand-edit
+evidence/command-log.jsonl same trail, full untruncated payload (one JSON object per command)
 cleanup/cleanup-log.md     artifacts dropped on targets + teardown status (cleanup-tracker)
 ```
 
@@ -93,8 +94,9 @@ cleanup/cleanup-log.md     artifacts dropped on targets + teardown status (clean
 - **Dropped anything on a target** (uploaded file, shell, account, persistence, config change)?
   Log it the moment you do, with the **`cleanup-tracker`** skill. The engagement is not clean
   until every tracked artifact is removed.
-- `evidence/command-log.md` is appended automatically by the command-log hook — it is the
-  chain-of-custody index. Reference it; do not rely on memory for what ran when.
+- `evidence/command-log.md` and `evidence/command-log.jsonl` are appended automatically by the
+  command-log hook. The `.md` is the scannable chain-of-custody index; the `.jsonl` is the full
+  untruncated record. Reference them; do not rely on memory for what ran when.
 - **Writing the deliverable?** Use the **`pentest-report`** skill — it assembles scope, KB,
   and findings into `report/report.md`.
 

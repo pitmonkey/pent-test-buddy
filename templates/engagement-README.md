@@ -18,7 +18,8 @@ data/
 findings/                  one file per confirmed finding (log-finding)
 report/                    report.md client deliverable (pentest-report)
 evidence/
-  command-log.md           automatic audit trail of every Bash command
+  command-log.md           automatic audit trail of every Bash command (truncated index)
+  command-log.jsonl        same, full untruncated payload (one JSON object per command)
 cleanup/
   cleanup-log.md           artifacts dropped on targets + teardown status
 CLAUDE.md                  governed-workflow rules loaded automatically by Claude Code
@@ -49,5 +50,6 @@ skill or subagent and recommends one — you decide whether to install it.
 - Nothing runs against a target that is not explicitly in scope and authorized in `scope.md`.
 - Every plan is reviewed against scope before execution; out-of-scope is a hard stop.
 - Raw evidence stays in `data/raw/`; distilled, reusable facts live in `data/knowledge-base/`.
-- Every Bash command is logged to `evidence/command-log.md` automatically.
+- Every Bash command is logged automatically to `evidence/command-log.md` (truncated index) and
+  `evidence/command-log.jsonl` (full untruncated record).
 - The engagement is not clean until every `cleanup/cleanup-log.md` item is removed.

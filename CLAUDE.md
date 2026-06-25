@@ -51,7 +51,10 @@ Skills (8): `pentest-init`, `grill-scope`, `scope-check`, `kb-distill`, `log-fin
 **The command-log hook (`hooks/command-log.py`):**
 - PostToolUse/Bash. **Guarded** to engagement dirs only (`docs/scope.md` or `data/knowledge-base/`
   present), else `exit 0`. Must **never block, never raise, always `exit 0`** — it is an audit
-  trail, not a gate. Escapes `|` for markdown table cells.
+  trail, not a gate. Writes two files per command: `evidence/command-log.md` (truncated table,
+  escapes `|` for cells) and `evidence/command-log.jsonl` (full untruncated PostToolUse payload +
+  a `logged_at` timestamp, one JSON object per line). Only the `.md` has a templated header; the
+  `.jsonl` is lazily created with no template.
 
 **Safety posture (this is offensive-security tooling):**
 - The whole point is enforcing authorization. Don't weaken the scope gate, the
@@ -64,8 +67,8 @@ No unit suite — skills/templates are prompt artifacts. Validate mechanically:
 - JSON parses: `python3 -c "import json;json.load(open('.claude-plugin/plugin.json'))"` (and
   `marketplace.json`, `hooks/hooks.json`).
 - Hook compiles + behaves: `python3 -m py_compile hooks/command-log.py`; pipe fake PostToolUse
-  JSON in/out of an engagement dir and assert it logs only inside one and exits 0 on malformed
-  input.
+  JSON in/out of an engagement dir and assert it logs only inside one (both `command-log.md` and
+  a valid, untruncated `command-log.jsonl` line) and exits 0 on malformed input.
 - Scaffold sim: in a temp dir, `sed`-fill the templates as `pentest-init` describes; assert the
   tree, no leftover `{{...}}`, and idempotent re-run.
 - Every new skill: assert `name:`/`description:` frontmatter and that the dir name matches.
