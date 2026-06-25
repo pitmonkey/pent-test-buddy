@@ -89,6 +89,7 @@ The `CLAUDE.md` written into each engagement directory requires, for any offensi
 | `get-inspired`  | `/get-inspired <folder>`| Mine an uninstalled folder for borrowable ideas (no install) |
 | `what-have-we-missed`| `/what-have-we-missed`| Review the workspace for gaps + next moves (in/out of scope) |
 | `find-skills`   | `/find-skills <capability>`| Search GitHub for a skill/subagent good at a capability (no install) |
+| `review-logs`   | `/review-logs`   | Caveman-compressed audit-log overview + inferred engagement storyline |
 
 ### Automatic hook
 
