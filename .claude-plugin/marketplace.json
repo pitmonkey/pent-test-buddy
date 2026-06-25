@@ -10,7 +10,7 @@
     {
       "name": "pent-test-buddy",
       "description": "Scaffold a scope-governed pentest workspace, grill out the Rules of Engagement, gate actions against scope.md, and distill raw tool output into a reusable knowledge base.",
-      "version": "0.1.0",
+      "version": "0.2.0",
       "source": "./",
       "category": "security"
     }
